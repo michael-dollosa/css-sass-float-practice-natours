@@ -1,0 +1,36 @@
+/* browser reset */
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;  /* for all elements to inherit box-sizing attribute in body element css */
+}
+
+html {
+    font-size: 62.5%; /* 1rem = 10px; 10px/16px = 62.5% -- 16px is default font size in browser*/
+
+    @include respond(big-desktop) {
+        font-size: 75%;
+    }
+
+    @include respond(tab-land) {
+        font-size: 56.25%;
+    }
+
+    @include respond(tab-port) {
+        font-size: 50%;
+    }
+
+
+}
+/* setting overall font in body since it will be inherited to child components */
+
+body {
+    box-sizing: border-box; /* change box model so borders and paddings are not added to total width and height to borders */
+    padding: 3rem;
+
+    @include respond(tab-port) {
+        padding: 0;
+    }
+}

@@ -1,0 +1,39 @@
+/* class selector */
+.header {
+    height: 95vh;  /* this means set height to 95% of viewport height */
+    background-image: linear-gradient(
+        to right bottom, /* direction of the gradient - right bottom simply means diagonally down from right */
+        rgba($color-black, 0.3), 
+        rgba($color-gray-dark, 0.3)), 
+        url(../img/hero.jpg);
+  
+    background-size: cover;
+    background-position: top; /* top part of the image will stay in the top part of container regardless of window size */
+    position: relative;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%); /* specify of the corners (coordinates) of the polygon of the part that you want to be seen */
+
+    @include respond(phone) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 90vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 90vh, 0 100%);
+    }
+    &__logo-box {
+        position: absolute;
+        top: 4rem; /* remember the the origin will be the relative position of the parent */
+        left: 4rem;
+    }
+
+    &__logo {
+        height: 3.5rem;
+    }
+    
+    &__text-box {
+        position: absolute;
+        top: 40%; /* remember the the origin will be the relative position of the parent */
+        left: 50%; /* remember the the origin will be the relative position of the parent */
+        transform: translate(-50%, -50%); /* shifted in related to the current position of the element itself */
+        text-align: center;
+    }
+    
+}
+
